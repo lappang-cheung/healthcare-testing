@@ -2,6 +2,7 @@
 
 import {ID, Query} from "node-appwrite";
 import { users } from "@/lib/appwrite.config";
+import {parseStringify} from "@/lib/utils";
 
 export const createUser = async (user:CreateUserParams) => {
   try{
@@ -12,9 +13,7 @@ export const createUser = async (user:CreateUserParams) => {
       undefined,
       user.name
     );
-
-    console.log({newUser})
-    console.log('i am here man')
+    return parseStringify(newUser)
 
   }catch (error: any) {
     if(error && error?.code === 409) {
