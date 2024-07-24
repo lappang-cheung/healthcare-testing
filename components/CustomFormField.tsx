@@ -3,6 +3,7 @@
 import React from 'react'
 
 import {FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
+import { Textarea } from "@/components/ui/textarea";
 import {Control} from "react-hook-form";
 import {FormFieldType} from "@/components/forms/PatientForm";
 import {Input} from "@/components/ui/input";
@@ -107,7 +108,17 @@ const RenderField = ({field, props}: { field:any; props:CustomProps}) => {
           </Select>
         </FormControl>
       );
-
+      case FormFieldType.TEXTAREA:
+        return (
+          <FormControl>
+            <Textarea
+              placeholder={props.placeholder}
+              {...field}
+              className="shad-textArea"
+              disabled={props.disabled}
+            />
+          </FormControl>
+        );
     default:
       break;
   }
