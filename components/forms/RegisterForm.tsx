@@ -13,8 +13,10 @@ import { useRouter } from "next/navigation";
 import {createUser} from "@/lib/actions/patient.action";
 import {FormFieldType} from "@/components/forms/PatientForm";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
-import {GenderOptions} from "@/constants";
+import {Doctors, GenderOptions} from "@/constants";
 import {Label} from "@/components/ui/label";
+import {SelectItem} from "@/components/ui/select";
+import Image from "next/image";
 
 
 const RegisterForm = ({ user }: {user: User}) => {
@@ -167,6 +169,29 @@ const RegisterForm = ({ user }: {user: User}) => {
           <div className="mb-9 space-y-1">
             <h2 className="sub-header">Medical Information</h2>
           </div>
+
+          <CustomFormField
+            fieldType={FormFieldType.SELECT}
+            control={form.control}
+            name="primaryPhysician"
+            label="Primary care physician"
+            placeholder="Select a physician"
+          >
+            {Doctors.map((doctor, i) => (
+              <SelectItem key={doctor.name + i} value={doctor.name}>
+                <div className="flex cursor-pointer items-center gap-2">
+                  <Image
+                    src={doctor.image}
+                    width={32}
+                    height={32}
+                    alt="doctor"
+                    className="rounded-full border border-dark-500"
+                  />
+                  <p>{doctor.name}</p>
+                </div>
+              </SelectItem>
+            ))}
+          </CustomFormField>
         </section>
 
         <section className="space-y-6">
