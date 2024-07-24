@@ -4,6 +4,7 @@ import React from 'react'
 
 import {FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox"
 import {Control} from "react-hook-form";
 import {FormFieldType} from "@/components/forms/PatientForm";
 import {Input} from "@/components/ui/input";
@@ -119,6 +120,21 @@ const RenderField = ({field, props}: { field:any; props:CustomProps}) => {
             />
           </FormControl>
         );
+    case FormFieldType.CHECKBOX:
+      return (
+        <FormControl>
+          <div className="flex items-center gap-4">
+            <Checkbox
+              id={props.name}
+              checked={field.value}
+              onCheckedChange={field.onChange}
+            />
+            <label htmlFor={props.name} className="checkbox-label">
+              {props.label}
+            </label>
+          </div>
+        </FormControl>
+      );
     default:
       break;
   }
