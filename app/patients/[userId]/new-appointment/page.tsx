@@ -1,8 +1,11 @@
 import Image from "next/image";
-import PatientForm from "@/components/forms/PatientForm";
-import Link from "next/link";
+import AppointmentForm from "@/components/forms/AppointmentForm";
+import {getPatient} from "@/lib/actions/patient.action";
 
-const NewAppointment = () => {
+const NewAppointment = async ({ params: { userId }}: SearchParamProps) => {
+
+  const patient = await getPatient(userId)
+
   return (
     <div className="flex h-screen max-h-screen">
       {/* Todo => OTP Verification | Passkey modal*/}
@@ -14,10 +17,13 @@ const NewAppointment = () => {
                  width={1000}
                  className="mb-12 h-10 w-fit"/>
 
+          <AppointmentForm type="create"
+                           userId={userId}
+                           patientId={patient?.$id}/>
 
-            <p className="justify-items-end text-dark-600 xl:text-left">
-              &copy; { new Date().getFullYear() } CarePulse
-            </p>
+          <p className="copyright mt-10 py-12">
+            &copy; { new Date().getFullYear() } CarePulse
+          </p>
 
         </div>
       </section>
