@@ -11,16 +11,8 @@ import SubmitButton from "@/components/SubmitButton";
 import { UserFormValidation } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 import {createUser} from "@/lib/actions/patient.action";
+import {FormFieldType} from "@/types/form.types";
 
-export enum FormFieldType {
-  INPUT = 'input',
-  TEXTAREA = 'textarea',
-  PHONE_INPUT = 'phoneInput',
-  CHECKBOX = 'checkbox',
-  DATE_PICKER = 'datePicker',
-  SELECT = 'select',
-  SKELETON = 'skeleton',
-}
 
 const PatientForm = () => {
 

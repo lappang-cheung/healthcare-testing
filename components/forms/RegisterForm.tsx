@@ -11,7 +11,7 @@ import SubmitButton from "@/components/SubmitButton";
 import { PatientFormValidation } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 import {createUser, registerPatient} from "@/lib/actions/patient.action";
-import {FormFieldType} from "@/components/forms/PatientForm";
+import {FormFieldType} from "@/types/form.types";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
 import {Doctors, GenderOptions, IdentificationTypes, PatientFormDefaultValues} from "@/constants";
 import {Label} from "@/components/ui/label";

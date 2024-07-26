@@ -6,7 +6,6 @@ import {FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/compon
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox"
 import {Control} from "react-hook-form";
-import {FormFieldType} from "@/components/forms/PatientForm";
 import {Input} from "@/components/ui/input";
 import Image from "next/image";
 import PhoneInput from "react-phone-number-input";
@@ -15,6 +14,7 @@ import {E164Number} from "libphonenumber-js";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {Select, SelectContent, SelectTrigger, SelectValue} from "@/components/ui/select";
+import {FormFieldType} from "@/types/form.types";
 
 interface CustomProps {
   control: Control<any>,

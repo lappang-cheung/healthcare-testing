@@ -8,7 +8,6 @@ const NewAppointment = async ({ params: { userId }}: SearchParamProps) => {
 
   return (
     <div className="flex h-screen max-h-screen">
-      {/* Todo => OTP Verification | Passkey modal*/}
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[860px] flex-1 justify-between">
           <Image src="/assets/icons/logo-full.svg"
